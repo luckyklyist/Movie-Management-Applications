@@ -581,7 +581,7 @@ const movies = async ()=>{
     const movieData = await data.json();
     movieData.forEach((movie)=>{
         const movieName1 = document.createElement("div");
-        movieName1.innerHTML = `${movie.title}`;
+        movieName1.innerHTML = `${movie.title} : ${movie.id}`;
         movieMenu.append(movieName1);
     });
 };
@@ -606,9 +606,37 @@ const addMovies = async ()=>{
         },
         body: JSON.stringify(obj)
     });
-    movieName;
 };
+const updateMovie = async ()=>{
+    console.log("updateMovie");
+    const name = prompt("Enter the ID you want to update:");
+    const title = prompt("Enter the title of movie:");
+    const obj = {
+        id: name,
+        title
+    };
+    await fetch(`http://localhost:3000/movies/${name}`, {
+        method: "PUT",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(obj)
+    });
+};
+const deleteMovies = async ()=>{
+    const wish = prompt("Enter the Id of the movie you want to remove:");
+    await fetch(`http://localhost:3000/movies/${wish}`, {
+        method: "DELETE",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        }
+    });
+};
+document.querySelector("#update").addEventListener("click", updateMovie);
 document.querySelector("#add").addEventListener("click", addMovies);
+document.querySelector("#del").addEventListener("click", deleteMovies);
 movies(); /*
 array method
 
@@ -619,7 +647,7 @@ reduce
 some
 
 
-  */ 
+*/ 
 
 },{}]},["igKGj","8lqZg"], "8lqZg", "parcelRequiree421")
 
