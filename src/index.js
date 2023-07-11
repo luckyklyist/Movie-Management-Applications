@@ -29,29 +29,32 @@ const movies = async () => {
 
 // adding movies on json server with post req
 const addMovies = async () => {
-  console.log("running add movies");
   const id = document.querySelector("#id").value;
   const title = document.querySelector("#movieName").value;
-  const year = document.querySelector("#Year").value;
-  console.log(id, movieName, year)
+  const year = document.querySelector("#year").value;
+  const director = document.querySelector("#director").value;
+  const img_url = document.querySelector("#img_url").value;
 
-  // create a obj containing the mathi ko key 
-  const obj = {
-    id,
-    title,
-    director: "xfcgvh",
-    year
+  // await fetch("http://localhost:3000/movies", {
+  //   method: 'POST',
+  //   headers: {
+  //     Accept: 'application/json',
+  //     'Content-Type': 'application/json',
+  //   },
+  //   body: JSON.stringify({ id, title, year, director, img_url }),
+  // });
+
+
+  let xhr = new XMLHttpRequest()
+  xhr.open('POST', "http://localhost:3000/movies", true)
+  xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8')
+  xhr.send(JSON.stringify({ id, title, year, director, img_url }));
+  xhr.onload = function () {
+    if (xhr.status === 201) {
+      movies();
+      console.log("Post successfully created!")
+    }
   }
-
-
-  await fetch("http://localhost:3000/movies", {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(obj),
-  });
 };
 
 
@@ -60,14 +63,14 @@ const updateMovie = async (id) => {
   const title = prompt("Name of the movie")
   const year = prompt("Enter release date of the movie")
   const director = prompt("Name of the director of the movie")
-  const img_url=prompt("Img of the movie")
+  const img_url = prompt("Img of the movie")
   await fetch(`http://localhost:3000/movies/${id}`, {
     method: 'PUT',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ id, title, year, director,img_url }),
+    body: JSON.stringify({ id, title, year, director, img_url }),
   })
 };
 
@@ -105,7 +108,7 @@ movies().then(() => {
     })
   })
 
-//sending the id of the movie to update 
+  //sending the id of the movie to update 
   const movieUpdateBtn = document.querySelectorAll(".update")
   movieUpdateBtn.forEach((btn) => {
     btn.addEventListener("click", function () {

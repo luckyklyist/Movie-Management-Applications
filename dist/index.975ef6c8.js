@@ -580,9 +580,9 @@ const movies = async ()=>{
     const data = await fetch("http://localhost:3000/movies");
     const movieData = await data.json();
     movieData.forEach((movie)=>{
-        const movieName1 = document.createElement("div");
-        movieName1.className = "movie m-2 col-md-3 p-3 d-flex align-items-center justify-content-center";
-        movieName1.innerHTML = `
+        const movieName = document.createElement("div");
+        movieName.className = "movie m-2 col-md-3 p-3 d-flex align-items-center justify-content-center";
+        movieName.innerHTML = `
     <div class="card" style="width: 18rem;">
   <img src="${movie.img_url}" class="card-img-top" height="300" alt="...">
   <div class="card-body">
@@ -596,31 +596,40 @@ const movies = async ()=>{
   </div>
 </div>
     `;
-        movieMenu.append(movieName1);
+        movieMenu.append(movieName);
     });
 };
 // adding movies on json server with post req
 const addMovies = async ()=>{
-    console.log("running add movies");
     const id = document.querySelector("#id").value;
     const title = document.querySelector("#movieName").value;
-    const year = document.querySelector("#Year").value;
-    console.log(id, movieName, year);
-    // create a obj containing the mathi ko key 
-    const obj = {
+    const year = document.querySelector("#year").value;
+    const director = document.querySelector("#director").value;
+    const img_url = document.querySelector("#img_url").value;
+    // await fetch("http://localhost:3000/movies", {
+    //   method: 'POST',
+    //   headers: {
+    //     Accept: 'application/json',
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({ id, title, year, director, img_url }),
+    // });
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://localhost:3000/movies", true);
+    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+    xhr.send(JSON.stringify({
         id,
         title,
-        director: "xfcgvh",
-        year
+        year,
+        director,
+        img_url
+    }));
+    xhr.onload = function() {
+        if (xhr.status === 201) {
+            movies();
+            console.log("Post successfully created!");
+        }
     };
-    await fetch("http://localhost:3000/movies", {
-        method: "POST",
-        headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(obj)
-    });
 };
 // updating the movies on json server using the put req
 const updateMovie = async (id)=>{
