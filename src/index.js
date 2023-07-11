@@ -1,14 +1,33 @@
-// const mainMovie = document.querySelector(".main_movie");
 const movieMenu = document.querySelector(".main_movie");
+
+// getting movies to show in the page
 const movies = async () => {
   const data = await fetch("http://localhost:3000/movies");
   const movieData = await data.json();
   movieData.forEach(movie => {
     const movieName = document.createElement("div");
-    movieName.innerHTML = `${movie.title} : ${movie.id}`;
+    movieName.className = "movie m-2 col-md-3 p-3 d-flex align-items-center justify-content-center";
+
+    movieName.innerHTML =
+      `
+    <div class="card" style="width: 18rem;">
+  <img src="${movie.img_url}" class="card-img-top" height="300" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">${movie.title}</h5>
+    <p class="card-text fst-italic">Release Date:${movie.year}</p>
+    <p class="card-text font-small">${movie.director}</p>
+    <div class"movie_btn flex justify-content-around">
+    <a href="#" class="btn btn-sm btn-primary">Update</a>
+    <a href="#" class="btn btn-sm btn-danger">Delete</a>
+    </div>
+  </div>
+</div>
+    `;
     movieMenu.append(movieName);
   });
 };
+
+// adding movies on json server with post req
 const addMovies = async () => {
   console.log("running add movies");
   const id = document.querySelector("#id").value;
@@ -40,7 +59,7 @@ const updateMovie = async () => {
   const name = prompt("Enter the ID you want to update:")
   const title = prompt("Enter the title of movie:")
   const obj = {
-    id:name,
+    id: name,
     title
   }
   await fetch(`http://localhost:3000/movies/${name}`, {
@@ -53,9 +72,8 @@ const updateMovie = async () => {
   })
 };
 
-const deleteMovies = async () => {
-  const wish = prompt("Enter the Id of the movie you want to remove:")
-  await fetch(`http://localhost:3000/movies/${wish}`, {
+const deleteMovies = async (id) => {
+  await fetch(`http://localhost:3000/movies/${id}`, {
     method: 'DELETE',
     headers: {
       Accept: 'application/json',
@@ -65,16 +83,19 @@ const deleteMovies = async () => {
 };
 document.querySelector("#update").addEventListener("click", updateMovie);
 document.querySelector("#add").addEventListener("click", addMovies);
-document.querySelector("#del").addEventListener("click", deleteMovies);
-movies();
-/*
-array method
-
-map 
-foreach
-filter
-reduce
-some
 
 
-*/
+movies().then(() => {
+  console.log(document.querySelectorAll(".main_movie .movie").length);
+
+  const movieDelBtn = document.querySelectorAll(".main_movie .movie button");
+
+  movieDelBtn.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      deleteMovies(this.id)
+    })
+  })
+
+
+
+});

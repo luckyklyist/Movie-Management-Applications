@@ -1,184 +1,34 @@
 {
   "movies": [
     {
-      "id": 2,
-      "title": "fcghjkl"
+      "title": "Inception",
+      "director": "Christopher Nolan",
+      "year": 2010,
+      "img_url": "https://m.media-amazon.com/images/M/MV5BMTM0MjUzNjkwMl5BMl5BanBnXkFtZTcwNjY0OTk1Mw@@._V1_.jpg"
     },
     {
-      "id": 4,
-      "title": "Pulp Fiction",
-      "director": "Quentin Tarantino",
-      "year": 1994
-    },
-    {
-      "id": 5,
       "title": "The Shawshank Redemption",
       "director": "Frank Darabont",
-      "year": 1994
+      "year": 1994,
+      "img_url": "https://www.themoviedb.org/t/p/original/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg"
     },
     {
-      "id": 7,
+      "title": "The Dark Knight",
+      "director": "Christopher Nolan",
+      "year": 2008,
+      "img_url": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2018%2F07%2Fmcddakn_ec005-2000.jpg&q=60"
+    },
+    {
+      "title": "Pulp Fiction",
+      "director": "Quentin Tarantino",
+      "year": 1994,
+      "img_url": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg"
+    },
+    {
       "title": "Fight Club",
       "director": "David Fincher",
-      "year": 1999
-    },
-    {
-      "id": 8,
-      "title": "Jetha Lal the part One"
-    },
-    {
-      "id": 9,
-      "title": "Goodfellas",
-      "director": "Martin Scorsese",
-      "year": 1990
-    },
-    {
-      "id": 10,
-      "title": "Forrest Gump",
-      "director": "Robert Zemeckis",
-      "year": 1994
-    },
-    {
-      "id": 11,
-      "title": "The Lord of the Rings: The Fellowship of the Ring",
-      "director": "Peter Jackson",
-      "year": 2001
-    },
-    {
-      "id": 13,
-      "title": "The Lion King",
-      "director": "Roger Allers, Rob Minkoff",
-      "year": 1994
-    },
-    {
-      "id": 14,
-      "title": "The Departed",
-      "director": "Martin Scorsese",
-      "year": 2006
-    },
-    {
-      "id": 15,
-      "title": "Star Wars: Episode IV - A New Hope",
-      "director": "George Lucas",
-      "year": 1977
-    },
-    {
-      "id": 16,
-      "title": "The Godfather: Part II",
-      "director": "Francis Ford Coppola",
-      "year": 1974
-    },
-    {
-      "id": 17,
-      "title": "Gladiator",
-      "director": "Ridley Scott",
-      "year": 2000
-    },
-    {
-      "id": 18,
-      "title": "The Green Mile",
-      "director": "Frank Darabont",
-      "year": 1999
-    },
-    {
-      "id": 19,
-      "title": "The Pianist",
-      "director": "Roman Polanski",
-      "year": 2002
-    },
-    {
-      "id": 20,
-      "title": "The Dark Knight Rises",
-      "director": "Christopher Nolan",
-      "year": 2012
-    },
-    {
-      "id": 21,
-      "title": "Casablanca",
-      "director": "Michael Curtiz",
-      "year": 1942
-    },
-    {
-      "id": 22,
-      "title": "Schindler's List",
-      "director": "Steven Spielberg",
-      "year": 1993
-    },
-    {
-      "id": 23,
-      "title": "Gone with the Wind",
-      "director": "Victor Fleming",
-      "year": 1939
-    },
-    {
-      "id": 24,
-      "title": "The Usual Suspects",
-      "director": "Bryan Singer",
-      "year": 1995
-    },
-    {
-      "id": 25,
-      "title": "Memento",
-      "director": "Christopher Nolan",
-      "year": 2000
-    },
-    {
-      "id": 90,
-      "title": "Jumanji",
-      "director": "Hfdj",
-      "year": 2017
-    },
-    {
-      "id": 3443,
-      "title": "tarak meta",
-      "director": "Hfdj343ffdv",
-      "year": 2019
-    },
-    {
-      "id": "34567",
-      "title": "dfghjk",
-      "director": "xfcgvh",
-      "year": "4578"
-    },
-    {
-      "id": "3434ewrew",
-      "title": "3434",
-      "director": "xfcgvh",
-      "year": "dsfdsf"
-    },
-    {
-      "id": "H5PjLSy",
-      "title": "",
-      "director": "xfcgvh",
-      "year": ""
-    },
-    {
-      "id": "PwLsW_4",
-      "title": "",
-      "director": "xfcgvh",
-      "year": ""
-    },
-    {
-      "id": "a0224It",
-      "title": "",
-      "director": "xfcgvh",
-      "year": ""
-    },
-    {
-      "title": "mr nepaldsjfksd",
-      "id": "345"
-    },
-    {
-      "id": "9y_somM",
-      "title": "",
-      "director": "xfcgvh",
-      "year": ""
-    },
-    {
-      "id": "fN8fMJV",
-      "title": "",
-      "director": "xfcgvh",
-      "year": ""
+      "year": 1999,
+      "img_url": "https://m.media-amazon.com/images/M/MV5BMmEzNTkxYjQtZTc0MC00YTVjLTg5ZTEtZWMwOWVlYzY0NWIwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg"
     }
   ]
 }
