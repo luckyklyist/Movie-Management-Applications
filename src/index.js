@@ -17,8 +17,8 @@ const movies = async () => {
     <p class="card-text fst-italic">Release Date:${movie.year}</p>
     <p class="card-text font-small">${movie.director}</p>
     <div class"movie_btn flex justify-content-around">
-    <a href="#" class="btn btn-sm btn-primary">Update</a>
-    <a href="#" class="btn btn-sm btn-danger">Delete</a>
+    <button class="btn btn-sm btn-primary update" id="${movie.id}">Update</button>
+    <button class="btn btn-sm btn-danger delete" id="${movie.id}">Delete</button>
     </div>
   </div>
 </div>
@@ -54,24 +54,24 @@ const addMovies = async () => {
   });
 };
 
-const updateMovie = async () => {
-  console.log("updateMovie")
-  const name = prompt("Enter the ID you want to update:")
-  const title = prompt("Enter the title of movie:")
-  const obj = {
-    id: name,
-    title
-  }
-  await fetch(`http://localhost:3000/movies/${name}`, {
+
+// updating the movies on json server using the put req
+const updateMovie = async (id) => {
+  const title = prompt("Name of the movie")
+  const year = prompt("Enter release date of the movie")
+  const director = prompt("Name of the director of the movie")
+  const img_url=prompt("Img of the movie")
+  await fetch(`http://localhost:3000/movies/${id}`, {
     method: 'PUT',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(obj),
+    body: JSON.stringify({ id, title, year, director,img_url }),
   })
 };
 
+// deleting the movies on json server using the delete req
 const deleteMovies = async (id) => {
   await fetch(`http://localhost:3000/movies/${id}`, {
     method: 'DELETE',
@@ -81,21 +81,37 @@ const deleteMovies = async (id) => {
     },
   });
 };
-document.querySelector("#update").addEventListener("click", updateMovie);
+
+// updating the movie from the DOM
+const getUpdateData = async (id) => {
+  const data = await fetch(`http://localhost:3000/movies/${id}`);
+  const movieData = await data.json();
+  console.log(movieData.title);
+  document.querySelector(".updateMovieName").value = movieData.title
+}
+
+// Event listener to make a post req to add the movie
 document.querySelector("#add").addEventListener("click", addMovies);
 
-
+// after the movie call it will start working with movieDelBtn
 movies().then(() => {
   console.log(document.querySelectorAll(".main_movie .movie").length);
+  const movieDelBtn = document.querySelectorAll(".delete");
 
-  const movieDelBtn = document.querySelectorAll(".main_movie .movie button");
-
+  // sending the id of the movie to delete 
   movieDelBtn.forEach((btn) => {
     btn.addEventListener("click", function () {
       deleteMovies(this.id)
     })
   })
 
-
-
+//sending the id of the movie to update 
+  const movieUpdateBtn = document.querySelectorAll(".update")
+  movieUpdateBtn.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      console.log(this.id, "id number");
+      // getUpdateData(this.id)
+      updateMovie(this.id);
+    })
+  })
 });
