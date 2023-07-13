@@ -1,39 +1,18 @@
 {
   "movies": [
     {
-      "id":1,
-      "title": "Inception",
-      "director": "Christopher Nolan",
-      "year": 2010,
-      "img_url": "https://m.media-amazon.com/images/M/MV5BMTM0MjUzNjkwMl5BMl5BanBnXkFtZTcwNjY0OTk1Mw@@._V1_.jpg"
-    },
-    {
-      "id":2,
+      "id": 2,
       "title": "The Shawshank Redemption",
       "director": "Frank Darabont",
       "year": 1994,
       "img_url": "https://www.themoviedb.org/t/p/original/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg"
     },
     {
-      "id":3,
+      "id": 3,
       "title": "The Dark Knight",
       "director": "Christopher Nolan",
       "year": 2008,
       "img_url": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2018%2F07%2Fmcddakn_ec005-2000.jpg&q=60"
-    },
-    {
-      "id":4,
-      "title": "Pulp Fiction",
-      "director": "Quentin Tarantino",
-      "year": 1994,
-      "img_url": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg"
-    },
-    {
-      "id":5,
-      "title": "Fight Club",
-      "director": "David Fincher",
-      "year": 1999,
-      "img_url": "https://m.media-amazon.com/images/M/MV5BMmEzNTkxYjQtZTc0MC00YTVjLTg5ZTEtZWMwOWVlYzY0NWIwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg"
     }
   ]
 }
