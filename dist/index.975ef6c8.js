@@ -637,50 +637,50 @@ const updateMovie = async (id)=>{
     const year = prompt("Enter release date of the movie");
     const director = prompt("Name of the director of the movie");
     const img_url = prompt("Img of the movie");
-    // await fetch(`http://localhost:3000/movies/${id}`, {
-    //   method: 'PUT',
-    //   headers: {
-    //     Accept: 'application/json',
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({ id, title, year, director, img_url }),
-    // })
-    let xhr = new XMLHttpRequest();
-    xhr.open("PUT", `http://localhost:3000/movies/${id}`, true);
-    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-    xhr.send(JSON.stringify({
-        id,
-        title,
-        year,
-        director,
-        img_url
-    }));
-    xhr.onload = function() {
-        if (xhr.status === 200) {
-            movies();
-            console.log("Post successfully created!");
-        }
-    };
+    await fetch(`http://localhost:3000/movies/${id}`, {
+        method: "PUT",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            id,
+            title,
+            year,
+            director,
+            img_url
+        })
+    });
+// let xhr = new XMLHttpRequest()
+// xhr.open('PUT', `http://localhost:3000/movies/${id}`, true)
+// xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8')
+// xhr.send(JSON.stringify({ id, title, year, director, img_url }));
+// xhr.onload = function () {
+//   if (xhr.status === 200) {
+//     movies();
+//     console.log("Post successfully created!")
+//   }
+// }
 };
 // deleting the movies on json server using the delete req
 const deleteMovies = async (id)=>{
-    // await fetch(`http://localhost:3000/movies/${id}`, {
-    //   method: 'DELETE',
-    //   headers: {
-    //     Accept: 'application/json',
-    //     'Content-Type': 'application/json',
-    //   },
-    // });
-    let xhr = new XMLHttpRequest();
-    xhr.open("DELETE", `http://localhost:3000/movies/${id}`, true);
-    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-    xhr.onload = function() {
-        if (xhr.status === 200) {
-            movies();
-            console.log("Post successfully created!");
+    await fetch(`http://localhost:3000/movies/${id}`, {
+        method: "DELETE",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
         }
-    };
-    xhr.send();
+    });
+// let xhr = new XMLHttpRequest()
+// xhr.open('DELETE', `http://localhost:3000/movies/${id}`, true)
+// xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8')
+// xhr.onload = function () {
+//   if (xhr.status === 200) {
+//     movies();
+//     console.log("Post successfully created!")
+//   }
+// }
+// xhr.send();
 };
 // updating the movie from the DOM
 const getUpdateData = async (id)=>{
